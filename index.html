@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Chicken Coop</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient">
+        <header class="sticky-header">
+            <nav class="container">
+                <h1 class="logo">🐔 CryptoChicken</h1>
+                <button id="connectWalletBtn" class="btn btn-outline">Connect Wallet</button>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="hero">
+                <h2 class="hero-title">Welcome to the Crypto Chicken Coop</h2>
+                <p class="hero-subtitle">Where blockchain meets barnyard! Earn crypto by managing your virtual chicken farm.</p>
+                <button id="startCoopBtn" class="btn btn-primary">Start Your Coop Now!</button>
+            </section>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Egg-ceptional Earnings</h3>
+                        <span class="icon egg-icon">🥚</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-value"><span id="eggCount">0</span> 🥚</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-yellow" id="layEggsBtn">Lay More Eggs!</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Feather Frenzy</h3>
+                        <span class="icon feather-icon">🪶</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-value"><span id="featherCount">0</span> 🪶</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-blue" id="ruffleFeathersBtn">Ruffle Feathers!</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cluck Bucks</h3>
+                        <span class="icon coin-icon">🪙</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-value"><span id="coinBalance">0.00</span> 🪙</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-green" id="peckCoinsBtn">Peck for Coins!</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-list">
+                    <button class="tab-trigger active" data-tab="marketplace">🛒 Marketplace</button>
+                    <button class="tab-trigger" data-tab="leaderboard">🏆 Leaderboard</button>
+                    <button class="tab-trigger" data-tab="minigames">🎮 Mini-games</button>
+                    <button class="tab-trigger" data-tab="flocks">👥 Flocks</button>
+                </div>
+                <div class="tab-content active" id="marketplace">
+                    <h3>Marketplace</h3>
+                    <p>Trade your earnings for upgrades and special items!</p>
+                    <div class="marketplace-items" id="marketplaceItems">
+                        <!-- Marketplace items will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="tab-content" id="leaderboard">
+                    <h3>Leaderboard</h3>
+                    <p>See how you stack up against other farmers!</p>
+                    <ol id="leaderboardList"></ol>
+                </div>
+                <div class="tab-content" id="minigames">
+                    <h3>Mini-games</h3>
+                    <p>Play fun games to earn extra rewards!</p>
+                    <div class="minigames-grid">
+                        <button class="btn btn-outline" id="eggCatchBtn">Play Egg Catch</button>
+                        <button class="btn btn-outline" id="chickenRunBtn">Play Chicken Run</button>
+                        <button class="btn btn-outline" id="featherSortBtn">Play Feather Sorting</button>
+                        <button class="btn btn-outline" id="coopDefenseBtn">Play Coop Defense</button>
+                    </div>
+                </div>
+                <div class="tab-content" id="flocks">
+                    <h3>Flocks</h3>
+                    <p>Team up with other players to boost your earnings!</p>
+                    <div class="flock-info">
+                        <h4>Your Flock: <span id="flockName">Not joined</span></h4>
+                        <span id="flockStatus" class="flock-status">Inactive</span>
+                    </div>
+                    <div class="flock-members">
+                        <h5>Members:</h5>
+                        <ul id="flockMembers"></ul>
+                    </div>
+                    <button class="btn btn-primary" id="joinFlockBtn">Join a Flock</button>
+                </div>
+            </div>
+
+            <section class="join-flock">
+                <h2>Join the Flock!</h2>
+                <div class="subscription-card">
+                    <h3>Get Started</h3>
+                    <p>Enter your email to receive updates and special offers!</p>
+                    <div class="subscription-form">
+                        <input type="email" id="emailInput" placeholder="your@email.com" class="email-input">
+                        <button class="btn btn-orange" id="subscribeBtn">Subscribe</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="scrollHint" class="scroll-hint">
+                <span class="chevron-down">▼</span>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>© 2024 Crypto Chicken Coop. All rights reserved.</p>
+                <p class="footer-note">No chickens were harmed in the making of this dApp. 🐔❤️</p>
+            </div>
+        </footer>
+
+        <div id="floatingEmojis" class="floating-emojis"></div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <p id="modalMessage"></p>
+            <button id="modalClose" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
